@@ -2,7 +2,14 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
+from .forms import SignUpForm
+from django.urls import reverse_lazy
 
-class SignUpView(TemplateView):
+class HomeView(TemplateView):
     template_name = 'common/login.html'
+
+class  SignUpView(CreateView):
+    form_class = SignUpForm
+    success_url = reverse_lazy('login')
+    template_name = 'common/register.html'
