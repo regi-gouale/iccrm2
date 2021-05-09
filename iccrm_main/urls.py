@@ -22,4 +22,5 @@ from apps.common.views import SignUpView, HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home'),
+    path('register/', SignUpView.as_view(), name='register'),
 ]
